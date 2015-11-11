@@ -1,6 +1,18 @@
-function cache(config) {
+class Cache {
+
+  constructor(config) {
+    this.config = config;
+  }
+
+  deal(key, callback) {
+    var {limit, overdueBy, prefix} = this.config;
+
+  }
+
+  remove(key) {
+
+  }
 
 }
 
-
-module.exports = cache;
+if(typeof module === 'object') module.exports = Cache;

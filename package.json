@@ -4,5 +4,15 @@
   "private": true,
   "description": "",
   "main": "index.js",
-  "author": "youngerheart"
+  "author": "youngerheart",
+  "dependencies": {
+    "gulp": "^3.8.11",
+    "gulp-rename": "^1.2.2",
+    "gulp-babel": "^6.0.0",
+    "run-sequence": "^1.1.0"
+  },
+  "devDependencies": {
+    "babel-core": "^6.1.4",
+    "babel-preset-es2015": "^6.1.4"
+  }
 }

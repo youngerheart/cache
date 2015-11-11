@@ -16,6 +16,7 @@ Than
       // default config
       {
         limit: 3600, // time limit (second)
+        overdueBy: 10, // you can also set overdue at the end of days number (prior to limit)
         prefix: 'cache' // prefix in localstorage
       }
 
