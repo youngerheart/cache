@@ -1,9 +1,20 @@
 {
-  "name": "cache",
+  "name": "browser-cache",
   "version": "0.0.1",
-  "private": true,
-  "description": "",
+  "license": "MIT",
+  "description": "browser cache processed API",
   "main": "dist/cache.min.js",
+  "files": [
+    "README.md",
+    "dist/"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/youngerheart/cache.git"
+  },
+  "bugs": {
+    "url": "https://github.com/youngerheart/cache/issues"
+  },
   "author": "youngerheart",
   "devDependencies": {
     "babel-core": "^6.1.4",

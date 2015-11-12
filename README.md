@@ -5,6 +5,8 @@ browser cache processed API
 
 It is base on localStorage, please running in browser.
 
+      $ npm install browser-cache
+
 Include js in `/dist` by tag , you can also `require('browser-cache')`
 
 Than
