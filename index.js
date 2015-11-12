@@ -2,13 +2,13 @@ const getDate = (stamp) => {
   return new Date(stamp).getDate();
 }
 
-class Cache {
+const Cache = {
 
-  constructor(config) {
+  init(config) {
     this.limit = config.overdue ? null : (config.limit || 3600);
     this.overdue = config.overdue || 1;
     this.prefix = (config.prefix || 'cache') + '_';
-  }
+  },
 
   deal(key, callback) {
     var {limit, overdue, prefix} = this;
@@ -30,7 +30,7 @@ class Cache {
     } else {
       callback(true, null);
     }
-  }
+  },
 
   save(key, value) {
     var {prefix} = this;
@@ -40,7 +40,7 @@ class Cache {
     };
 
     localStorage.setItem(prefix + key, JSON.stringify(obj));
-  }
+  },
 
   remove(key) {
     var {prefix} = this;

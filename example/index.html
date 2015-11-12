@@ -8,12 +8,12 @@
     <script type="text/javascript" src="../dist/cache.min.js"></script>
     <script type="text/javascript">
       document.write('cache time limit in 5 second, try refresh~<br>');
-      var cache = new Cache({
+      Cache.init({
         limit: 5,
         prefix: 'cache'
       });
 
-      cache.deal('wow', function(overdue, data) {
+      Cache.deal('wow', function(overdue, data) {
         if(data) {
           // deal with old data first
           document.write('old data: ' + data + '<br>');
@@ -22,7 +22,7 @@
         if(overdue || !data) {
           // make new data
           document.write('save data');
-          cache.save('wow', 'this is value');
+          Cache.save('wow', 'this is value');
         }
       });
 
