@@ -1,6 +1,6 @@
 {
   "name": "browser-cache",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "license": "MIT",
   "description": "browser cache processed API",
   "main": "dist/cache.min.js",

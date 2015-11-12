@@ -17,15 +17,15 @@ class Cache {
     if(obj) {
       obj = JSON.parse(obj);
       if(limit) {
-        if(now - obj.createAt < limit * 1000)
-          callback(false, obj.data);
-        else
+        if(now - obj.createAt > limit * 1000)
           callback(true, obj.data);
+        else
+          callback(false, obj.data);
       } else if(overdue) {
-        if(getDate(Date.now()) - getDate(obj.createAt) < overdue - 1)
-          callback(false, obj.data);
-        else
+        if(getDate(Date.now()) - getDate(obj.createAt) > overdue - 1)
           callback(true, obj.data);
+        else
+          callback(false, obj.data);
       }
     } else {
       callback(true, null);
