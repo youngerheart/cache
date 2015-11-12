@@ -44,9 +44,14 @@ class Cache {
 
   remove(key) {
     var {prefix} = this;
+    if(!key) {
+      for(let name in localStorage) {
+        if(name.indexOf(prefix) === 0) localStorage.removeItem(name);
+      }
+      return;
+    }
     localStorage.removeItem(prefix + key);
   }
-
 }
 
 if(typeof module === 'object') module.exports = Cache;

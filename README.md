@@ -26,7 +26,7 @@ Than
 
       cache.deal(name, callback); // deal with old data
       cache.save(name, value); // save new data
-      cache.remove(name); // remove that keyvalue from localStorage
+      cache.remove(name); // remove that keyvalue from localStorage, or not incoming variable to remove all prefix localStorage data
 
 callback will return two arguments, you can use them like that
 
@@ -40,3 +40,6 @@ callback will return two arguments, you can use them like that
           cache.save(order, newdata);
         }
       });
+
+#### develop
+      $ make dev
