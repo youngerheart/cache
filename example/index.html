@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>cache demo</title>
+    <meta charset="utf-8">
+  </head>
+  <body>
+    <script type="text/javascript" src="../dist/cache.min.js"></script>
+    <script type="text/javascript">
+      document.write('cache time limit in 5 second, try refresh~<br>');
+      var cache = new Cache({
+        limit: 5,
+        prefix: 'cache'
+      });
+
+      cache.deal('wow', function(overdue, data) {
+        if(data) {
+          // deal with old data first
+          document.write('old data: ' + data + '<br>');
+        }
+
+        if(overdue || !data) {
+          // make new data
+          document.write('save data');
+          cache.save('wow', 'this is value');
+        }
+      });
+
+    </script>
+  </body>
+</html>

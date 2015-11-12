@@ -16,13 +16,15 @@ Than
       // default config
       {
         limit: 3600, // time limit (second)
-        overdueBy: 10, // you can also set overdue at the end of days number (prior to limit)
+        overdue: 1, // you can also set overdue at the end of days number (prior to limit)
         prefix: 'cache' // prefix in localstorage
       }
 
 #### methods
 
-      cache.deal(name, callback);
+      cache.deal(name, callback); // deal with old data
+      cache.save(name, value); // save new data
+      cache.remove(name); // remove that keyvalue from localStorage
 
 callback will return two arguments, you can use them like that
 
@@ -33,7 +35,6 @@ callback will return two arguments, you can use them like that
 
         if(overdue || !data) {
           // make new data
+          cache.save(order, newdata);
         }
       });
-
-      cache.remove(name); // remove that keyvalue from localStorage
