@@ -21,7 +21,9 @@ gulp.task('watch', lazyWatch(['./index.js'], 'compile'));
 
 gulp.task('compile', function() {
   return gulp.src('index.js')
-  .pipe(babel({presets: ['es2015']}))
+  .pipe(babel({
+    presets: ['es2015']
+  }))
   .pipe(uglify())
   .pipe(rename('cache.min.js'))
   .pipe(gulp.dest('dist'));
