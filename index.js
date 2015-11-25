@@ -10,9 +10,10 @@ const Cache = {
     this.prefix = (config.prefix || 'cache') + '_';
   },
 
-  deal(key, callback) {
+  deal(key, callback, isSession) {
+    var storage = isSession ? sessionStorage : localStorage;
     var {limit, overdue, prefix} = this;
-    var obj = localStorage.getItem(prefix + key);
+    var obj = storage.getItem(prefix + key);
     var now = Date.now();
     if(obj) {
       obj = JSON.parse(obj);
@@ -32,25 +33,27 @@ const Cache = {
     }
   },
 
-  save(key, value) {
+  save(key, value, isSession) {
+    var storage = isSession ? sessionStorage : localStorage;
     var {prefix} = this;
     var obj = {
       createAt: Date.now(),
       data: value
     };
 
-    localStorage.setItem(prefix + key, JSON.stringify(obj));
+    storage.setItem(prefix + key, JSON.stringify(obj));
   },
 
-  remove(key) {
+  remove(key, isSession) {
+    var storage = isSession ? sessionStorage : localStorage;
     var {prefix} = this;
     if(!key) {
-      for(let name in localStorage) {
-        if(name.indexOf(prefix) === 0) localStorage.removeItem(name);
+      for(let name in storage) {
+        if(name.indexOf(prefix) === 0) storage.removeItem(name);
       }
       return;
     }
-    localStorage.removeItem(prefix + key);
+    storage.removeItem(prefix + key);
   }
 }
 

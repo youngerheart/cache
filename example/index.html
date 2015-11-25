@@ -7,7 +7,8 @@
   <body>
     <script type="text/javascript" src="../dist/cache.min.js"></script>
     <script type="text/javascript">
-      document.write('cache time limit in 5 second, try refresh~<br>');
+      document.write('localCache time limit in 5 second, try refresh~<br>');
+      document.write('sessionCache time limit in 5 second, try refresh~<br>');
       Cache.init({
         limit: 5,
         prefix: 'cache'
@@ -21,10 +22,23 @@
 
         if(overdue || !data) {
           // make new data
-          document.write('save data');
+          document.write('save local data<br>');
           Cache.save('wow', 'this is value');
         }
       });
+
+      Cache.deal('duang', function(overdue, data) {
+        if(data) {
+          // deal with old data first
+          document.write('old data: ' + data + '<br>');
+        }
+
+        if(overdue || !data) {
+          // make new data
+          document.write('save session data<br>');
+          Cache.save('duang', 'this is value', true);
+        }
+      }, true);
 
     </script>
   </body>

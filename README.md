@@ -6,7 +6,7 @@ view `example`
 
 ## usage
 
-It is base on localStorage, please running in browser.
+It is base on localStorage and sessionStorage, please running in browser.
 
       $ npm install browser-cache
 
@@ -22,14 +22,14 @@ Than
       {
         limit: 3600, // time limit (second)
         overdue: 1, // you can also set overdue at the end of days number (prior to limit)
-        prefix: 'cache' // prefix in localstorage
+        prefix: 'cache' // prefix in storage
       }
 
 #### methods
 
-      Cache.deal(name, callback); // deal with old data
-      Cache.save(name, value); // save new data
-      Cache.remove(name); // remove that keyvalue from localStorage, or not incoming variable to remove all prefix localStorage data
+      Cache.deal(name, callback, isSession); // deal with old data
+      Cache.save(name, value, isSession); // save new data
+      Cache.remove(name, isSession); // remove that keyvalue from localStorage, or not incoming false to remove all prefix data
 
 callback will return two arguments, you can use them like that
 
